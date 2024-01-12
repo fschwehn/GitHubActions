@@ -1,4 +1,5 @@
 import XCTest
+import Factory
 @testable import GitHubActions
 
 final class GitHubActionsTests: XCTestCase {
@@ -10,7 +11,8 @@ final class GitHubActionsTests: XCTestCase {
         XCTAssertTrue(true)
     }
 
-//    func test_3() throws {
-//        XCTAssertTrue(false)
-//    }
+    func test_TheOracle() throws {
+        let oracle = Container.shared.oracle()
+        XCTAssertEqual(oracle.meaningOfLife(), 42)
+    }
 }

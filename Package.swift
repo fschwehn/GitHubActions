@@ -11,9 +11,13 @@ let package = Package(
             name: "GitHubActions",
             targets: ["GitHubActions"]),
     ],
+    dependencies: [
+        .package(url: "https://github.com/hmlongco/Factory.git", from: "2.1.5"),
+    ],
     targets: [
         .target(
-            name: "GitHubActions"),
+            name: "GitHubActions",
+            dependencies: ["Factory"]),
         .testTarget(
             name: "GitHubActionsTests",
             dependencies: ["GitHubActions"]),
