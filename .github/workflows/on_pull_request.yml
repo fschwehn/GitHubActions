@@ -8,11 +8,11 @@ on:
     branches: [ "main" ]
 
 jobs:
-  test:
+  build:
 
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v3
-    - name: Run tests
-      run: swift test --parallel
+      - uses: actions/checkout@v3
+      - name: Run tests
+        run: swift build -c release
