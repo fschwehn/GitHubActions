@@ -9,4 +9,8 @@ final class GitHubActionsTests: XCTestCase {
     func test_fails() throws {
         XCTAssertEqual(theAnswer(), 23)
     }
+
+    func test_2() throws {
+        XCTAssertTrue(true)
+    }
 }
