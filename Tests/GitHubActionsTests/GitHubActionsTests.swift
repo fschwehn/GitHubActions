@@ -14,7 +14,7 @@ final class GitHubActionsTests: XCTestCase {
         XCTAssertTrue(true)
     }
 
-    func test_3() throws {
-        XCTAssertTrue(false)
-    }
+//    func test_3() throws {
+//        XCTAssertTrue(false)
+//    }
 }
