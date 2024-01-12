@@ -13,6 +13,11 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v3
-      - name: Run tests
+      - name: 'Checkout'
+        uses: actions/checkout@v3
+
+      - name: 'Dependency Review'
+        uses: actions/dependency-review-action@v3
+              
+      - name: 'Build'
         run: swift build -c release

@@ -13,6 +13,8 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v3
-      - name: Run tests
+      - name: 'Checkout'
+        uses: actions/checkout@v3
+
+      - name: 'Run Tests'
         run: swift test --parallel
