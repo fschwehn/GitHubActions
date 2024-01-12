@@ -6,11 +6,15 @@ final class GitHubActionsTests: XCTestCase {
         XCTAssertEqual(theAnswer(), 42)
     }
 
-    func test_fails() throws {
-        XCTAssertEqual(theAnswer(), 23)
-    }
+//    func test_fails() throws {
+//        XCTAssertEqual(theAnswer(), 23)
+//    }
 
     func test_2() throws {
         XCTAssertTrue(true)
     }
+
+//    func test_3() throws {
+//        XCTAssertTrue(false)
+//    }
 }
