@@ -22,6 +22,7 @@ jobs:
           echo ${{ vars.ENV1_SECRET }}
           echo "$ENV1_VARIABLE"
           echo "$ENV1_SECRET"
+          echo "$REPO_SECRET"
 
       # - name: a script
       #   env:
