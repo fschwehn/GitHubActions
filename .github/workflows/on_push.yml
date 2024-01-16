@@ -19,9 +19,9 @@ jobs:
       - name: a script
         run: |
           echo REPOSITORY_VAR ${{ vars.REPOSITORY_VAR }}
-          echo REPOSITORY_SECRET ${{ vars.REPOSITORY_SECRET }}
-          echo "REPOSITORY_VAR: $REPOSITORY_VAR"
-          echo "REPOSITORY_SECRET: $REPOSITORY_SECRET"
+          echo REPOSITORY_SECRET ${{ secrets.REPOSITORY_SECRET }}
+          echo "$REPOSITORY_VAR"
+          echo "repository variable : $REPOSITORY_VAR"
 
       # - name: a script
       #   env:
