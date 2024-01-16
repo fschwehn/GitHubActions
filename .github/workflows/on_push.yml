@@ -17,14 +17,21 @@ jobs:
 
     steps:
       - name: a script
-        env:
-          ENV_MY_VAR: ${{ env.myVar }}
         run: |
-          echo "hello world"
-          echo "$myVar"
-          echo $myVar
-          echo ${{ env.myVar }}
-          echo $ENV_MY_VAR
+          echo ${{ vars.ENV1_VARIABLE }}
+          echo ${{ vars.ENV1_SECRET }}
+          echo "$ENV1_VARIABLE"
+          echo "$ENV1_SECRET"
+
+      # - name: a script
+      #   env:
+      #     ENV_MY_VAR: ${{ env.myVar }}
+      #   run: |
+      #     echo "hello world"
+      #     echo "$myVar"
+      #     echo $myVar
+      #     echo ${{ env.myVar }}
+      #     echo $ENV_MY_VAR
 
       # - name: 'Checkout'
       #   uses: actions/checkout@v3
