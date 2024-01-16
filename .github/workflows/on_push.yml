@@ -1,72 +1,40 @@
-on:
-  workflow_dispatch:
+# This workflow will build a Swift project
+# For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-swift
+
+name: on_push
+
 env:
-  # Setting an environment variable with the value of a configuration variable
-  env_var: ${{ vars.ENV_CONTEXT_VAR }}
+  myVar: 42
+
+on:
+  push:
+    branches: [ "*" ]
 
 jobs:
-  display-variables:
-    name: ${{ vars.JOB_NAME }}
-    # You can use configuration variables with the `vars` context for dynamic jobs
-    if: ${{ vars.USE_VARIABLES == 'true' }}
-    runs-on: ${{ vars.RUNNER }}
-    environment: ${{ vars.ENVIRONMENT_STAGE }}
+  test:
+
+    runs-on: ubuntu-latest
+
     steps:
-    - name: Use variables
-      run: |
-        echo "repository variable : $REPOSITORY_VAR"
-        echo "organization variable : $ORGANIZATION_VAR"
-        echo "overridden variable : $OVERRIDE_VAR"
-        echo "variable from shell environment : $env_var"
-      env:
-        REPOSITORY_VAR: ${{ vars.REPOSITORY_VAR }}
-        ORGANIZATION_VAR: ${{ vars.ORGANIZATION_VAR }}
-        OVERRIDE_VAR: ${{ vars.OVERRIDE_VAR }}
-        
-    - name: ${{ vars.HELLO_WORLD_STEP }}
-      if: ${{ vars.HELLO_WORLD_ENABLED == 'true' }}
-      uses: actions/hello-world-javascript-action@main
-      with:
-        who-to-greet: ${{ vars.GREET_NAME }}
+      - name: a script
+        run: |
+          echo REPOSITORY_VAR ${{ vars.REPOSITORY_VAR }}
+          echo REPOSITORY_SECRET ${{ vars.REPOSITORY_SECRET }}
+          echo "REPOSITORY_VAR: $REPOSITORY_VAR"
+          echo "REPOSITORY_SECRET: $REPOSITORY_SECRET"
 
+      # - name: a script
+      #   env:
+      #     ENV_MY_VAR: ${{ env.myVar }}
+      #   run: |
+      #     echo "hello world"
+      #     echo "$myVar"
+      #     echo $myVar
+      #     echo ${{ env.myVar }}
+      #     echo $ENV_MY_VAR
 
-# # This workflow will build a Swift project
-# # For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-swift
+      # - name: 'Checkout'
+      #   uses: actions/checkout@v3
 
-# name: on_push
-
-# env:
-#   myVar: 42
-
-# on:
-#   push:
-#     branches: [ "*" ]
-
-# jobs:
-#   test:
-
-#     runs-on: ubuntu-latest
-
-#     steps:
-#       - name: a script
-#         run: |
-#           echo ${{ vars.ENV1_VARIABLE }}
-#           echo ${{ vars.ENV1_SECRET }}
-#           echo "$ENV1_VARIABLE"
-#           echo "$ENV1_SECRET"
-
-#       # - name: a script
-#       #   env:
-#       #     ENV_MY_VAR: ${{ env.myVar }}
-#       #   run: |
-#       #     echo "hello world"
-#       #     echo "$myVar"
-#       #     echo $myVar
-#       #     echo ${{ env.myVar }}
-#       #     echo $ENV_MY_VAR
-
-#       # - name: 'Checkout'
-#       #   uses: actions/checkout@v3
-
-#       # - name: 'Run Tests'
-#       #   run: swift test --parallel
+      # - name: 'Run Tests'
+      #   run: swift test --parallel
