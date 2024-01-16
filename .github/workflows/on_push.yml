@@ -3,6 +3,9 @@
 
 name: on_push
 
+env:
+  myVar: 42
+
 on:
   push:
     branches: [ "*" ]
@@ -13,8 +16,18 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: 'Checkout'
-        uses: actions/checkout@v3
+      - name: a script
+        env:
+          ENV_MY_VAR: ${{ env.myVar }}
+        run: |
+          echo "hello world"
+          echo "$myVar"
+          echo $myVar
+          echo ${{ env.myVar }}
+          echo $ENV_MY_VAR
 
-      - name: 'Run Tests'
-        run: swift test --parallel
+      # - name: 'Checkout'
+      #   uses: actions/checkout@v3
+
+      # - name: 'Run Tests'
+      #   run: swift test --parallel
