@@ -12,16 +12,16 @@ on:
 
 jobs:
   test:
-
     runs-on: ubuntu-latest
-
+    environment: ${{ vars.ENVIRONMENT_STAGE }}
     steps:
       - name: a script
         run: |
-          echo REPOSITORY_VAR ${{ vars.REPOSITORY_VAR }}
-          echo REPOSITORY_SECRET ${{ secrets.REPOSITORY_SECRET }}
+          echo REPOSITORY_VAR: ${{ vars.REPOSITORY_VAR }}
+          echo REPOSITORY_SECRET: ${{ secrets.REPOSITORY_SECRET }}
           echo "$REPOSITORY_VAR"
           echo "repository variable : $REPOSITORY_VAR"
+          echo ENVIRONMENT_STAGE: ${{ vars.ENVIRONMENT_STAGE }}
 
       # - name: a script
       #   env:
