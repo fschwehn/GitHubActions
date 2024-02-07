@@ -15,11 +15,7 @@ jobs:
 
   call-reusable-workflow:
     uses: ./.github/workflows/reusable.yml
+    secrets: inherit
     with:
       foo: 'bar'
-  
-  call-reusable-workflow-env:
-    uses: ./.github/workflows/reusable.yml
-    with:
-      foo: ${{ vars.value }}
       

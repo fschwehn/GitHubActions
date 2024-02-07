@@ -4,9 +4,16 @@ on:
       foo:
         required: true
         type: string
+    secrets:
+      REPOSITORY_SECRET:
+        required: true
+      
 jobs:
   aJob:
     runs-on: ubuntu-latest
     steps:
     - run: |
-        echo foo: "${{ inputs.foo }}"
+        echo inputs.foo: "${{ inputs.foo }}"    
+        echo secrets.REPOSITORY_SECRET: "${{ secrets.REPOSITORY_SECRET }}"
+        echo vars.REPOSITORY_VAR: "${{ vars.REPOSITORY_VAR }}"
+        
