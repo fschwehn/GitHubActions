@@ -8,4 +8,5 @@ jobs:
   aJob:
     runs-on: ubuntu-latest
     steps:
-    - run: echo "foo ${{ inputs.foo }}"
+    - run: |
+        echo foo: "${{ inputs.foo }}"

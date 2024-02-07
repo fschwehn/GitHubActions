@@ -2,8 +2,18 @@ name: on_push
 on:
   push:
     branches: [ "*" ]
+
+env:
+  value: 'workflow.env'
+
 jobs:
+  jobA:
+    runs-on: ubuntu-latest
+    steps:
+      - run: |
+          echo ${{ env.value }}
+
   call-reusable-workflow:
     uses: ./.github/workflows/reusable.yml
     with:
-      foo: 'bar'
+      foo: ${{ github.workflow.env.value }}
