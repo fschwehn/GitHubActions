@@ -16,4 +16,9 @@ jobs:
   call-reusable-workflow:
     uses: ./.github/workflows/reusable.yml
     with:
+      foo: 'bar'
+  
+  call-reusable-workflow-env:
+    uses: ./.github/workflows/reusable.yml
+    with:
       foo: ${{ github.workflow.env.value }}
